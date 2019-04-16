@@ -1,0 +1,29 @@
+mvc(models view controllers)
+
+view with handlebars
+main.handlebars(template)
+
+
+router with express ---> whenever you go home display index (/ index)
+/ has two values ---> request response ---> req res 
+ req --->grab info from frontend
+res ---> display handlebars
+res.json
+res.render(index)
+
+database mysql
+
+tells every router to pass certain info
+
+
+
+in JS 2 main parts
+frontend.js---> public/index.js---> values from forms ---> make post put get delete req
+
+
+serverside.js ---> node express(routes)---> routes.js executes whatever comes from front end 
+
+
+FINISH ORM MODELS DATABSE 
+BY 4/17
+
