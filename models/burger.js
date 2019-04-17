@@ -1,20 +1,25 @@
 var orm = require("../config/orm");
 
 // file calling a file calling a file calling a file calling in server.js
-// contain all metheds to modify orm for burgerDB
+// contain all methods to modify orm for burgerDB
+
+
 var burger = {
-    all: function(tableInput, cb){
-        connection.query("SELECT * FROM" + tableInput + ";", function(err, result){
-            if(err) throw err;
-            cb(result)
-        })
-    },
-    update: function(tableInput, condition, cb){
-        connection.query("UPDATE " + tableInput +"SET  = true WHERE id="+condition+";", function(err, result){
-            if(err) throw err;
-            cb(result)
+    selectAll: function(cb){
+        orm.selectAll('burger', function(res){
+            cb(res);
         })
     }
+    // ,
+    // update: function(tableInput, condition, cb){
+    //     connection.query("UPDATE " + tableInput +"SET  = true WHERE id="+condition+";", function(err, result){
+    //         if(err) throw err;
+    //         cb(result)
+    //     })
+    // }
 }
 
-module.exports = burger
+module.exports = burger;
+
+// conection => orm (establish your queries ex. "SELECT * FROM" -RAW)
+// orm => model.js (fill out the queries)

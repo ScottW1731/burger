@@ -27,3 +27,23 @@ serverside.js ---> node express(routes)---> routes.js executes whatever comes fr
 FINISH ORM MODELS DATABSE 
 BY 4/17
 
+unless the burger has not been eaten
+
+        {{> burgers/burgers-block complete=true}} line 9
+        
+unless the burger has been eaten I have to place this code
+                {{> burgers/burgers-block complete=false}} line21
+file is index.handlebars
+
+
+
+first make sure in main.handlebars calling CSS and JS in public folder
+see armando's code 
+
+second inside of public/assets/js/public.js see how to make a post and put request
+using ajax through events button on click
+
+third search for partials.handlebars and how I can use it to update this partials
+of my frontend if everything is clear I can place the notes I put from line 30-36 in handlebars
+
+block.handlebars
