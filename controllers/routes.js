@@ -1,6 +1,8 @@
 //
 var express = require("express");
 var router = express.Router();
+var burger = require("../models/burger.js")
+
 
 //route to display our index.handlebars (homepage)
 router.get("/", function(req, res){
@@ -20,3 +22,4 @@ router.put("/:id", function(req, res){
 
 
 // export your routes: 
+module.exports = router;
