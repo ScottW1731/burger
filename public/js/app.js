@@ -16,7 +16,7 @@ $(function() {
       };
   
       // Send the PUT request.
-      $.ajax("/api/burger" + id, {
+      $.ajax("/:id" + id, {
         type: "PUT",
         data: newBurgerState
       }).then(
@@ -38,12 +38,12 @@ $(function() {
       };
   
       // Send the POST request.
-      $.ajax("/api/cats", {
+      $.ajax("/create", {
         type: "POST",
         data: newEaten
       }).then(
         function() {
-          console.log("");
+          console.log("yum yum yum");
           // Reload the page to get the updated list
           location.reload();
         }

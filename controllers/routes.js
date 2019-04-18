@@ -15,16 +15,20 @@ burger.selectAll(function(data){
 })
 });
 
+// route to update the burger throught its id]
+router.put("/:id", function(req, res){
+  burger.update(function(data){
+    
+
+  })
+})
 
 // route to create a burger (post request)
 router.post("/create", function(req, res){
   res.status(200).send('OK');
 })
 
-// route to update the burger throught its id]
-router.put("/:id", function(req, res){
-  res.status(200).send('OK');
-})
+
 
 
 // export your routes: 

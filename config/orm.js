@@ -38,17 +38,20 @@ function printQuestionMarks(num) {
 // update data existing in DB
 var orm = {
     selectAll: function(tableInput, cb){
-        connection.query("SELECT * FROM " + tableInput + ";", function(err, result){
+      // if you will use it alot it is best to make it easy to do so in a variable
+      var selectString = "SELECT * FROM " + tableInput + ";";
+        connection.query(selectString, function(err, result){
             if(err) throw err;
-            cb(result)
-        })
+            cb(result);
+        });
+    },
+    update: function(tableInput, condition, cb){
+      var updateString = "UPDATE " + tableInput + "SET  = true WHERE id="+condition+";";
+        connection.query(updateString, function(err, result){
+            if(err) throw err;
+            cb(result);
+        });
     }
-    // update: function(tableInput, condition, cb){
-    //     connection.query("UPDATE " + tableInput +"SET  = true WHERE id="+condition+";", function(err, result){
-    //         if(err) throw err;
-    //         cb(result)
-    //     })
-    // }
     
 };
 
