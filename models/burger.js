@@ -1,4 +1,4 @@
-var orm = require("../config/orm");
+var orm = require("../config/orm.js");
 
 // file calling a file calling a file calling a file calling in server.js
 // contain all methods to modify orm for burgerDB

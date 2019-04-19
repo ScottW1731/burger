@@ -1,4 +1,4 @@
-var connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 // ------------------------------ HELPER FUNCTIONS --------------------------------- //
 // 1. Helper functions for SQL syntax.

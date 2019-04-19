@@ -1,7 +1,7 @@
 var express = require("express")
 // var methodOverride = require("method-override")
 var exphbs = require("express-handlebars")
-var routes = require('./controllers/routes.js')
+var routes = require("./controllers/routes.js")
 
 
 var PORT = process.env.PORT || 3306;

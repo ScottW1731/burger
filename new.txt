@@ -47,3 +47,14 @@ third search for partials.handlebars and how I can use it to update this partial
 of my frontend if everything is clear I can place the notes I put from line 30-36 in handlebars
 
 block.handlebars
+
+
+
+"dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "handlebars": "^4.1.2",
+    "mysql": "^2.16.0"
+  }
