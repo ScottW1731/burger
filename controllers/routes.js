@@ -20,18 +20,21 @@ burger.selectAll(function(data){
 router.post("/create", function(req, res){
   console.log(req.body)
     burger.insertOne(
-      ["name","calories","price","eaten"],
-    [req.body.name, req.body.calories, req.body.price, req.body.eaten], function(result){
+      ["name","calories","price"],
+    [req.body.name, req.body.calories, req.body.price], 
+    function(result){
       res.json({id: result.insertId})
     }
     )
     
-})
+});
 
-// route to update the burger throught its id]
+// route to update the burger throught its id
+
 router.put("/:id", function(req, res){
-  var id = "id =" + req.params.id;
-  burger.updateOne({eaten: req.body.eaten},id,function(result){
+  var id = "id = " + req.params.id
+  console.log(req.body);
+  burger.updateOne({eaten: req.body.eaten}, id, function(result){
     if (result.changedRows == 0) {
       return res.status(404).end();
     } else {
@@ -39,12 +42,7 @@ router.put("/:id", function(req, res){
     }
     
   })
-})
-
-
-
-
-
+});
 
 // export your routes: 
 module.exports = router;

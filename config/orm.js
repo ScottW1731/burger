@@ -15,8 +15,8 @@ function printQuestionMarks(num) {
   //2. Helper function to convert object key/value pairs to SQL syntax
   function objToSql(ob) {
     var arr = [];
-    console.log('what is this obj: ' + ob[0]);
-  
+    // console.log('what is this obj: ' + ob[0]);
+    
     for (var key in ob) {
       var value = ob[key];
   
@@ -45,13 +45,36 @@ var orm = {
             cb(result);
         });
     },
-    update: function(tableInput, condition, cb){
-      var updateString = "UPDATE " + tableInput + "SET  = true WHERE id="+condition+";";
-        connection.query(updateString, function(err, result){
-            if(err) throw err;
-            cb(result);
-        });
+    insertOne: function(tableInput, cols, vals, cb) {
+      var insertString = 'INSERT INTO ' + tableInput + ' (' + cols.toString() + ') ' + 'VALUES (' + printQuestionMarks(vals.length) + ') ';
+  
+      console.log(insertString);
+  
+      connection.query(insertString, vals, function(err, result) {
+        if (err) {
+          throw err;
+        }
+  
+        cb(result);
+      });
+    },
+    updateOne: function(tableInput, objColsVals, id, cb) {
+      // update burgers set "eaten: true" where id = 1
+
+      var updateString = 'UPDATE ' + tableInput + " SET " + objToSql(objColsVals) + " WHERE " + id;
+  
+      console.log(updateString);
+  
+      connection.query(updateString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+  
+        cb(result);
+      });
     }
+
+    
     
 };
 

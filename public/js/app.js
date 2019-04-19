@@ -7,8 +7,8 @@ $(function() {
         event.preventDefault();
         var newBurger = {
           name: $("#name").val().trim(),
-          calories: $("#calories").val(),
-          price: $("#price").val(),
+          calories: $("#calories").val().trim(),
+          price: $("#price").val().trim(),
           eaten: $("#eaten").val()
         }
   
@@ -25,11 +25,11 @@ $(function() {
       );
     });
   
-    $(".eatBurger").on("submit", function(event) {
+    $(".eatBurger").on("click", function(event) {
               //  If this method is called, the default action of the event will not be triggered.
       event.preventDefault();
       var id = $(this).data("id");
-      var newEaten = $(this).data("newEaten");
+      var newEaten = $(this).data("neweaten");
   
       var newBurgerState = {
         eaten: newEaten

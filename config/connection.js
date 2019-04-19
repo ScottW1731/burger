@@ -8,7 +8,15 @@ var connection = mysql.createConnection({
   database: "burgerDB"
 });
 
-
+/*
+if (process.env.MYSQL_URL) {
+  var connection = mysql.createConnection(process.env.MYSQL_URL);
+  host = 'MYSQL';
+} else {
+  connection = mysql.createConnection(config);
+  host = 'localhost';
+}
+*/
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);

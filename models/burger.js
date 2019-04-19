@@ -8,18 +8,19 @@ var burger = {
     selectAll: function(cb){
         orm.selectAll('burger', function(res){
             cb(res);
-        })
+        });
     },
-    insertOne: function(columns, values, cb){
-        
+    insertOne: function(cols, vals, cb){
+        orm.insertOne('burger', cols, vals, function(res) {
+            cb(res);
+          });
+    },
+    updateOne: function(objColsVals, id, cb){
+        orm.updateOne("burger", objColsVals, id, function(res){
+            
+            cb(res)
+        });
     }
-    update: function(tableInput, condition, cb){
-        connection.query("UPDATE " + tableInput +"SET  = true WHERE id="+condition+";", function(err, result){
-            if(err) throw err;
-            cb(result)
-        })
-    }
-
 }
 
 module.exports = burger;

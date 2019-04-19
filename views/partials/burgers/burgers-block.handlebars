@@ -1,7 +1,9 @@
 <li>
-	{{name}}
+	
+<h5>{{name}}</h5>
+	<button class="eatBurger" data-id="{{id}}" data-neweaten="{{complete}}">
+		
+		{{#if complete}}nom nom nom!{{else}}MOOORRREEE!{{/if}}
 
-	<button class="change-burger" data-id="{{id}}" data-newEaten="{{eaten}}">
-		{{#if eaten}}nom nom nom!{{else}}MOOORRREEE!{{/if}}
 	</button>
 </li>
