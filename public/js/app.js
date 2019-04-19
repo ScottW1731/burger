@@ -2,23 +2,20 @@
 
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-    $(".newForm").on("click", function(event) {
+    $(".create-form").on("submit", function(event) {
         //  If this method is called, the default action of the event will not be triggered.
         event.preventDefault();
-      var id = $(this).data("id");
-      var newBurger = $(this).data("newBurger");
+        var newBurger = {
+          name: $("#name").val().trim(),
+          calories: $("#calories").val(),
+          price: $("#price").val(),
+          eaten: $("#eaten").val()
+        }
   
-      var newBurgerState = {
-        name: $("#name")
-        // Get the current value of the first element in the set of matched elements or set the value of every matched element .val()
-            .val(),
-            eaten: $("#eaten").val()
-      };
-  
-      // Send the PUT request.
-      $.ajax("/:id" + id, {
-        type: "PUT",
-        data: newBurgerState
+      // Send the POST request.
+      $.ajax("/create", {
+        type: "POST",
+        data: newBurger
       }).then(
         function() {
           console.log("nom nom nom", newBurger);
@@ -29,21 +26,22 @@ $(function() {
     });
   
     $(".eatBurger").on("submit", function(event) {
-      // Make sure to preventDefault on a submit event.
+              //  If this method is called, the default action of the event will not be triggered.
       event.preventDefault();
+      var id = $(this).data("id");
+      var newEaten = $(this).data("newEaten");
   
-      var newEaten = {
-        name: $("#ca").val().trim(),
-        burger: $("[name=burger]:checked").val().trim()
+      var newBurgerState = {
+        eaten: newEaten
       };
   
-      // Send the POST request.
-      $.ajax("/create", {
-        type: "POST",
-        data: newEaten
+      // Send the PUT request.
+      $.ajax("/" + id, {
+        type: "PUT",
+        data: newBurgerState
       }).then(
         function() {
-          console.log("yum yum yum");
+          console.log("nom nom nom", newEaten);
           // Reload the page to get the updated list
           location.reload();
         }

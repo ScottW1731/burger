@@ -15,18 +15,33 @@ burger.selectAll(function(data){
 })
 });
 
-// route to update the burger throught its id]
-router.put("/:id", function(req, res){
-  burger.update(function(data){
-    
-
-  })
-})
 
 // route to create a burger (post request)
 router.post("/create", function(req, res){
-  res.status(200).send('OK');
+  console.log(req.body)
+    burger.insertOne(
+      ["name","calories","price","eaten"],
+    [req.body.name, req.body.calories, req.body.price, req.body.eaten], function(result){
+      res.json({id: result.insertId})
+    }
+    )
+    
 })
+
+// route to update the burger throught its id]
+router.put("/:id", function(req, res){
+  var id = "id =" + req.params.id;
+  burger.updateOne({eaten: req.body.eaten},id,function(result){
+    if (result.changedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+    
+  })
+})
+
+
 
 
 

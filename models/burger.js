@@ -9,14 +9,17 @@ var burger = {
         orm.selectAll('burger', function(res){
             cb(res);
         })
+    },
+    insertOne: function(columns, values, cb){
+        
     }
-    // ,
-    // update: function(tableInput, condition, cb){
-    //     connection.query("UPDATE " + tableInput +"SET  = true WHERE id="+condition+";", function(err, result){
-    //         if(err) throw err;
-    //         cb(result)
-    //     })
-    // }
+    update: function(tableInput, condition, cb){
+        connection.query("UPDATE " + tableInput +"SET  = true WHERE id="+condition+";", function(err, result){
+            if(err) throw err;
+            cb(result)
+        })
+    }
+
 }
 
 module.exports = burger;
