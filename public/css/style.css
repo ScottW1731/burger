@@ -3,3 +3,7 @@ body {
     height: 900px;
     background-color: rgb(255, 25, 25);
   }
+
+  .row {
+    color: rgb(179, 36, 0);
+  }
