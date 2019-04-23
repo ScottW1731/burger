@@ -13,6 +13,11 @@ var config = {
 var connection;
 var host;
 
+// var host = "localhost"
+// connection = mysql.createConnection(config);
+
+
+
 if(process.env.JAWSDB_URL){
 var connection = mysql.createConnection(process.env.JAWSDB_URL);
 host = "JAWSDB";
